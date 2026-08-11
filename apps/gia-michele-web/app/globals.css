@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #F7F5F0;
+  --ink: #3A3831;
+  --ivory: #FAF9F6;
+  --stone: #EBE7DF;
+  --taupe: #8C867B;
+  --acool: #E8520F;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.serif {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+}
+
+.eyebrow {
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  font-size: .68rem;
+  font-weight: 700;
+}
+
+.editorial-rule { border-color: color-mix(in srgb, var(--ink) 17%, transparent); }
+
+.hero-wash {
+  background:
+    radial-gradient(circle at 76% 24%, rgba(255,255,255,.82), transparent 22%),
+    linear-gradient(120deg, rgba(58,56,49,.74), rgba(58,56,49,.16)),
+    linear-gradient(135deg, #6f6a60, #c6bfb2 58%, #ebe7df);
+}
+
+.luxury-card {
+  border: 1px solid color-mix(in srgb, var(--ink) 13%, transparent);
+  background: rgba(250,249,246,.66);
+  transition: transform .35s ease, background-color .35s ease;
+}
+
+.luxury-card:hover {
+  transform: translateY(-4px);
+  background: var(--ivory);
+}
+
+.acool-signature {
+  color: var(--acool);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: .62rem;
+  font-weight: 800;
+}
