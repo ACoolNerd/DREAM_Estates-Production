@@ -1,3 +1,4 @@
+import { MobileMenu } from '@/components/mobile-menu'
 import { getFeaturedPortfolio, getServiceTiers } from '@/lib/data'
 
 const nav = [
@@ -25,9 +26,12 @@ export default async function HomePage() {
               <a key={href} href={href} className="eyebrow text-[10px] text-white/80 hover:text-white">{label}</a>
             ))}
           </nav>
-          <a href="#contact" className="eyebrow border border-white/50 px-4 py-3 text-[9px] hover:bg-white hover:text-[#3A3831]">
-            Begin a project
-          </a>
+          <div className="flex items-center gap-3">
+            <a href="#contact" className="eyebrow hidden border border-white/50 px-4 py-3 text-[9px] hover:bg-white hover:text-[#3A3831] sm:inline-block">
+              Begin a project
+            </a>
+            <MobileMenu />
+          </div>
         </div>
       </header>
 
