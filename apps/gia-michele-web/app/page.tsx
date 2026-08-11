@@ -13,6 +13,7 @@ export default async function HomePage() {
     getServiceTiers(),
     getFeaturedPortfolio(),
   ])
+  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL
 
   return (
     <main>
@@ -21,7 +22,7 @@ export default async function HomePage() {
           <a href="#top" className="serif text-xl tracking-[.14em]">GIA MICHÈLE</a>
           <nav className="hidden items-center gap-8 md:flex">
             {nav.map(([label, href]) => (
-              <a key={href} href={href} className="eyebrow text-[10px] text-white/85 hover:text-white">{label}</a>
+              <a key={href} href={href} className="eyebrow text-[10px] text-white/80 hover:text-white">{label}</a>
             ))}
           </nav>
           <a href="#contact" className="eyebrow border border-white/50 px-4 py-3 text-[9px] hover:bg-white hover:text-[#3A3831]">
@@ -38,7 +39,7 @@ export default async function HomePage() {
             <h1 className="serif max-w-4xl text-6xl leading-[.94] sm:text-7xl lg:text-8xl">
               Space. Purpose. <span className="italic">Beauty.</span>
             </h1>
-            <p className="mt-8 max-w-xl text-base leading-7 text-white/82">
+            <p className="mt-8 max-w-xl text-base leading-7 text-white/80">
               Thoughtful residential interiors and made-to-order furnishings shaped by proportion,
               material, function, and a sense of quiet permanence.
             </p>
@@ -47,9 +48,7 @@ export default async function HomePage() {
       </section>
 
       <section id="about" className="mx-auto grid max-w-7xl gap-16 px-6 py-28 lg:grid-cols-[.8fr_1.2fr] lg:px-10 lg:py-40">
-        <div>
-          <p className="eyebrow text-[#8C867B]">The studio</p>
-        </div>
+        <div><p className="eyebrow text-[#8C867B]">The studio</p></div>
         <div>
           <h2 className="serif max-w-3xl text-4xl leading-tight sm:text-5xl">
             Design that feels composed, personal, and built to live with beautifully.
@@ -118,7 +117,7 @@ export default async function HomePage() {
                 <div className="absolute inset-x-0 bottom-0 p-7 text-white">
                   <p className="eyebrow text-white/70">{asset.category ?? 'Portfolio'}</p>
                   <h3 className="serif mt-2 text-3xl">{asset.title}</h3>
-                  {asset.location && <p className="mt-2 text-xs text-white/75">{asset.location}</p>}
+                  {asset.location && <p className="mt-2 text-xs text-white/70">{asset.location}</p>}
                 </div>
               </article>
             ))}
@@ -137,7 +136,7 @@ export default async function HomePage() {
       <section id="trade" className="bg-[#3A3831] px-6 py-28 text-[#FAF9F6] lg:px-10 lg:py-36">
         <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-2">
           <div>
-            <p className="eyebrow text-white/55">Designer trade program</p>
+            <p className="eyebrow text-white/60">Designer trade program</p>
             <h2 className="serif mt-5 text-5xl leading-tight">A collection designed to travel through trusted designers.</h2>
           </div>
           <div className="border-t border-white/20 pt-8 lg:border-l lg:border-t-0 lg:pl-14 lg:pt-0">
@@ -163,9 +162,15 @@ export default async function HomePage() {
               </h2>
             </div>
             <div className="flex items-end lg:justify-end">
-              <a href="mailto:hello@example.com" className="inline-block bg-[#3A3831] px-7 py-5 text-xs font-bold uppercase tracking-[.22em] text-white">
-                Contact the studio
-              </a>
+              {contactEmail ? (
+                <a href={`mailto:${contactEmail}`} className="inline-block bg-[#3A3831] px-7 py-5 text-xs font-bold uppercase tracking-[.22em] text-white">
+                  Contact the studio
+                </a>
+              ) : (
+                <span className="inline-block border border-[#3A3831]/25 px-7 py-5 text-xs font-bold uppercase tracking-[.22em] text-[#8C867B]">
+                  Contact details pending approval
+                </span>
+              )}
             </div>
           </div>
           <footer className="mt-24 flex flex-col justify-between gap-6 border-t editorial-rule pt-8 text-xs text-[#8C867B] sm:flex-row">
