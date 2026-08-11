@@ -64,7 +64,7 @@ No asset bypasses Brand Review and Creative Direction approval before distributi
 
 ## ASSET ATTRIBUTION PROTOCOL
 
-Every major production asset must maintain appropriate attribution in its source metadata or production record. This applies to all assets listed in the [README Asset Attribution Protocol](README.md#asset-attribution-protocol) section.
+Every major production asset must maintain appropriate attribution in its source metadata or production record. This applies to all assets listed in the [Asset Attribution Protocol](docs/brand-system.md#asset-attribution-protocol) section.
 
 Developers and engineers: include appropriate credit in repository documentation, production manifests, n8n workflow notes, MCP tool metadata and internal dashboards.
 
