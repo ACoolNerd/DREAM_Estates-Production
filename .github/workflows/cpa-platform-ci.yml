@@ -1,0 +1,42 @@
+name: CPA Platform CI
+
+on:
+  pull_request:
+    paths:
+      - 'apps/cpa-partnership-web/**'
+      - 'apps/partner-portal/**'
+      - 'services/agent-orchestrator/**'
+      - 'services/platform-api/**'
+      - 'packages/compliance/**'
+      - 'packages/domain/**'
+      - 'integrations/supabase/**'
+      - 'package.json'
+      - 'pnpm-workspace.yaml'
+      - '.github/workflows/cpa-platform-ci.yml'
+  push:
+    branches:
+      - 'build/cpa-mortgage-platform-v0.1'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: pnpm install --no-frozen-lockfile
+      - name: Agent tests
+        run: pnpm --filter @dream/agent-orchestrator test
+      - name: Compliance tests
+        run: pnpm --filter @dream/compliance test
+      - name: Typecheck
+        run: pnpm -r typecheck
+      - name: Build CPA website
+        run: pnpm --filter @dream/cpa-partnership-web build
+      - name: Build partner portal
+        run: pnpm --filter @dream/partner-portal build
