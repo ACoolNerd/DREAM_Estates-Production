@@ -1,0 +1,21 @@
+{
+  "name": "@dream/platform-api",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/server.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "echo api-lint-pending"
+  },
+  "dependencies": {
+    "@dream/compliance": "workspace:*",
+    "@dream/domain": "workspace:*",
+    "fastify": "^5.5.0",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}
