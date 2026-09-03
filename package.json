@@ -1,0 +1,12 @@
+{
+  "name": "dream-estates-production",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@10.0.0",
+  "scripts": {
+    "dev:cpa": "pnpm --filter @dream/cpa-partnership-web dev",
+    "build:cpa": "pnpm --filter @dream/cpa-partnership-web build",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm -r lint"
+  }
+}
